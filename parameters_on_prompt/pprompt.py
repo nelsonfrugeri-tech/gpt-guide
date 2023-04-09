@@ -8,8 +8,8 @@ load_dotenv()
 # Set OpenAI API key from environment variable
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# Define the model and parameters to use for the completion
-engine = "text-davinci-003"
+# Set the model to use for the completion
+engine = os.getenv("OPENAI_MODEL")
 
 def generate_completion(params):
 
