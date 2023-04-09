@@ -14,7 +14,8 @@ def generate_completion(params):
 def prompt():
     return {
         "prompt": input("Enter a prompt: "),
-        "max_tokens": int(input("Enter the max tokens: "))
+        "max_tokens": int(input("Enter the max tokens: ")),
+        "temperature": int(input("Enter the creativity value of the text, from 0 to 1, 0 for least creative and 1 for most creative: "))
     }
 
 def main():
