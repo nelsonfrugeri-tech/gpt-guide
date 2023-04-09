@@ -2,27 +2,34 @@ import openai
 from dotenv import load_dotenv
 import os
 
-# Load environment variables from .env file
-load_dotenv()
+def generate_completion(prompt, max_tokens):
+    # Define the model and parameters to use for the completion
+    engine = "text-davinci-003"
 
-# Set OpenAI API key from environment variable
-openai.api_key = os.getenv("OPENAI_API_KEY")
+    # Use the OpenAI API to generate a completion
+    response = openai.Completion.create(
+        engine=engine,
+        prompt=prompt,
+        max_tokens=max_tokens
+    )
 
-# Define the prompt that the model will complete
-prompt = input("Enter a prompt: ")
+    return response.choices[0].text.strip()
 
-# Define the number max of the tokens
-max_tokens = int(input("Enter the max tokens: "))
+def main():
+    # Load environment variables from .env file
+    load_dotenv()
 
-# Define the model and parameters to use for the completion
-engine = "text-davinci-003"
+    # Set OpenAI API key from environment variable
+    openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# Use the OpenAI API to generate a completion
-response = openai.Completion.create(
-    engine=engine,
-    prompt=prompt,
-    max_tokens=max_tokens
-)
+    # Define the prompt that the model will complete
+    prompt = input("Enter a prompt: ")
 
-# Print the completion text
-print(response.choices[0].text.strip())
+    # Define the number max of the tokens
+    max_tokens = int(input("Enter the max tokens: "))
+
+    # Print the completion text
+    print(generate_completion(prompt, max_tokens))
+
+if __name__ == "__main__":
+    main()
