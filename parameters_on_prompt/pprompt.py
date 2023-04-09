@@ -9,7 +9,7 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Define the prompt that the model will complete
-prompt = "Hello my friend! What's time is it?"
+prompt = input("Enter a prompt: ")
 
 # Define the model and parameters to use for the completion
 model_engine = "text-davinci-003"
