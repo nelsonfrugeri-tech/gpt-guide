@@ -12,7 +12,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 prompt = "Hello my friend! What's time is it?"
 
 # Define the model and parameters to use for the completion
-model_engine = "text-davinci-002"
+model_engine = "text-davinci-003"
 
 # Use the OpenAI API to generate a completion
 response = openai.Completion.create(
