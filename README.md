@@ -21,7 +21,7 @@ The value of the variable OPENAI_MODEL should be the ID of the template you want
 To make it easier to set the environment variables you can create an .env file in the project root with the following content:
 
 ```sh
-OPENAI_API_KEY=<sua chave de API da OpenAI>
+OPENAI_API_KEY=<YOUR_KEY_OPENAI>
 OPENAI_MODEL=text-davinci-003
 ```
 
