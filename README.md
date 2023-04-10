@@ -47,5 +47,5 @@ pipenv run pip install -r requirements.txt
 
 * Run the exemplo request-body:
 ```sh
-pipenv run python3 request-body/hello_my_friend.py
+pipenv run python3 create_completion/parameters.py
 ```
