@@ -7,12 +7,6 @@ This is a sample project that uses the OpenAI Chat Completions API to automatica
 Python 3.x
 An OpenAI API key
 
-Next, you need to install the project's dependencies using the pip package manager. To do this, navigate to the root folder of the project and run the following command:
-
-```sh
-pip install -r requirements.txt
-```
-
 ## Configuration
 To use the OpenAI Chat Completions API, you need to set the OPENAI_API_KEY and OPENAI_MODEL environment variables. The value of the OPENAI_API_KEY variable must be your OpenAI API key. To get an API key, go to the OpenAI control panel and create a new key.
 
