@@ -1,5 +1,5 @@
 # chat-completions-manual
-> Repository with practical examples and explanations about OpenAI's Chat Completion project
+> In this session you will learn more about OpenAI's Chat Completion project with practical examples and detailed explanations
 
 This is a sample project that uses the OpenAI Chat Completions API to automatically generate text responses. The project is developed in Python and uses the python-dotenv library to load environment variables from an .env file.
 
