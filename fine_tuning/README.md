@@ -44,3 +44,6 @@ openai api fine_tunes.follow -i <YOUR_FINE_TUNE_JOB_ID>
 When the process is in successful status, run the chat_completion create
 
 [To learn more about how to run chat_completion create](https://github.com/nelsonfrugeri/gpt-manual/blob/main/chat_completion) 
+
+#### Reference
+https://platform.openai.com/docs/guides/fine-tuning
