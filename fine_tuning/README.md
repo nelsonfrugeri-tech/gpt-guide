@@ -20,7 +20,7 @@ pip3 install --upgrade openai
 To make it easier to set the environment variables you can create an .env file in the project root with the following content:
 ```sh
 OPENAI_API_KEY=<YOUR_KEY_OPENAI>
-OPENAI_MODEL=text-davinci-003
+OPENAI_MODEL=<YOUR_MODEL_OPENAI>
 ```
 
 ## CLI data preparation tool

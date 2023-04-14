@@ -16,7 +16,7 @@ To make it easier to set the environment variables you can create an .env file i
 
 ```sh
 OPENAI_API_KEY=<YOUR_KEY_OPENAI>
-OPENAI_MODEL=text-davinci-003
+OPENAI_MODEL=<YOUR_MODEL_OPENAI>
 ```
 
 The .env file will be loaded automatically by the python-dotenv library when you run the project code.
