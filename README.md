@@ -1,4 +1,4 @@
-# gpt-manual
+# gpt-guide
 > This project is a practical and example-based reference about OpenAI's GPT
 
 ![image](images/cover.jpg)
