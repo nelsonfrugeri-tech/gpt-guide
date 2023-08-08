@@ -7,7 +7,7 @@ def main():
 
     conversation = ConversationChain(
         llm=OpenAI(temperature=os.getenv('OPENAI_PARAM_TEMPERATURE')), 
-        verbose=os.getenv('CONVERSATION_CHAIN_PARAM_VERBOSE')
+        verbose=os.getenv('LANGCHAIN_CONVERSATION_PARAM_VERBOSE')
     )
 
     print(f'{chat}: Hello, what can I do for you?')
@@ -19,7 +19,7 @@ def main():
             print('Leaving chat... bye')
             break
 
-        print(chat + conversation.predict(input=user_input))
+        print(f'{chat}: {conversation.predict(input=user_input)}')
 
 if __name__ == '__main__':
     main()
