@@ -18,7 +18,7 @@ def main():
 
     agent = ZeroShotAgent(
         llm_chain=LLMChain(
-            llm=OpenAI(temperature=0), 
+            llm=OpenAI(temperature=os.getenv("OPENAI_PARAM_TEMPERATURE")), 
             prompt=ZeroShotAgent.create_prompt(
                 tools,
                 prefix="""Have a conversation with a human, answering the following questions as best you can. You have access to the following tools:""",
