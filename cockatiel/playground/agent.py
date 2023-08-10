@@ -15,9 +15,10 @@ def main():
                 func=GoogleSerperAPIWrapper().run,
                 description="useful for when you need to ask with search",
             )
-        ], OpenAI(temperature=os.getenv("OPENAI_PARAM_TEMPERATURE")),
-            agent=AgentType.SELF_ASK_WITH_SEARCH,
-            verbose=os.getenv("GOOGLE_SERPER_API_PARAM_VERBOSE")
+        ], 
+        OpenAI(temperature=os.getenv("OPENAI_PARAM_TEMPERATURE")),
+        agent=AgentType.SELF_ASK_WITH_SEARCH,
+        verbose=os.getenv("GOOGLE_SERPER_API_PARAM_VERBOSE")
     )
 
     print('Chat: Hello, what can I do for you?')

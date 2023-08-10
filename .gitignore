@@ -1,3 +1,5 @@
+### *** PYTHON PART *** ###
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -130,3 +132,49 @@ dmypy.json
 Pipfile
 Brewfile
 Pipfile.lock
+
+
+### *** NODE.JS PART *** ###
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Diretório de dependências
+node_modules
+package-lock.json
+
+# Diretório de build
+dist
+
+# Chaves e arquivos de ambiente
+.env
+.env.local
+.env.*.local
+
+# Arquivos de cache
+.nyc_output
+.cache
+.cache-loader
+
+# Arquivos de configuração do editor
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Arquivos temporários
+.DS_Store
+Thumbs.db
