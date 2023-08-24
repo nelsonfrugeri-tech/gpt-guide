@@ -1,3 +1,4 @@
+import os
 import requests
 import pickle
 import argparse
@@ -17,7 +18,8 @@ def extract_text_from(url):
 
 def main(): 
     pages = []
-    url = "https://g1.globo.com/economia/noticia/2023/08/14/argentina-dolarizar-a-economia-crise-economica.ghtml"
+    user = os.getenv("USER")
+    url = os.getenv("URL")
     pages.append({'text': extract_text_from(url), 'source': url})
 
     text_splitter = CharacterTextSplitter(chunk_size=1500, separator="\n")
@@ -30,12 +32,9 @@ def main():
         print(f"Split {page['source']} into {len(splits)} chunks")
 
     store = FAISS.from_texts(docs, OpenAIEmbeddings(), metadatas=metadatas)
+    
     with open("faiss_store.pkl", "wb") as f:
         pickle.dump(store, f)
-
-    parser = argparse.ArgumentParser(description='Paepper.com Q&A')
-    parser.add_argument('question', type=str, help='Quetion to be answered')
-    args = parser.parse_args()
 
     with open("faiss_store.pkl", "rb") as f:
         store = pickle.load(f)
@@ -43,10 +42,19 @@ def main():
     chain = VectorDBQAWithSourcesChain.from_llm(
                 llm=OpenAI(temperature=0), vectorstore=store)
     
-    result = chain({"question": args.question})
+    print("Chat: Hello, I already know all the content of the web site, "+ 
+          "I'm here to answer all your questions")
 
-    print(f"Answer: {result['answer']}")
-    print(f"Sources: {result['sources']}")
+    while True:
+        user_input = input(f'{user}: ')
+
+        if (user_input.lower() == 'exit' or 
+            user_input.lower() == 'clear'):
+
+            print('Leaving chat... bye')
+            break
+
+        print(chain({"question": user_input})['answer'])
 
 if __name__ == '__main__':
     main()

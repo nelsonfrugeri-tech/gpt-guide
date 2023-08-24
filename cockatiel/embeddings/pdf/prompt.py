@@ -16,7 +16,8 @@ def main():
 
     chain = RetrievalQA.from_llm(llm=OpenAI(), retriever=db.as_retriever())
 
-    print("Chat: Hello, I already know all the content of the doc, I'm here to answer all your questions")
+    print("Chat: Hello, I already know all the content of the doc, "+
+          "I'm here to answer all your questions")
 
     while True:
         user_input = input(f'{user}: ')
