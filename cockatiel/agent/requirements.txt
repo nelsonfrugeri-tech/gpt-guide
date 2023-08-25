@@ -2,3 +2,5 @@ langchain
 openai
 python-dotenv
 google-search-results
+wikipedia
+duckduckgo-search

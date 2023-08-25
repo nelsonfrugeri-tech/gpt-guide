@@ -5,6 +5,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.utilities.wikipedia import WikipediaAPIWrapper
 from langchain.memory import ConversationBufferMemory
 from langchain.utilities.duckduckgo_search import DuckDuckGoSearchAPIWrapper
+from langchain import LLMMathChain
 
 def main():
     user = os.getenv("USER")
@@ -19,25 +20,28 @@ def main():
             name="Wikipedia",
             func=WikipediaAPIWrapper().run,
             description="useful when you need an answer about general knowledge"
+        ),
+        Tool(
+            name="Calculator",
+            func=LLMMathChain.from_llm(llm=ChatOpenAI(temperature=0, model='gpt-3.5-turbo'), verbose=False).run,
+            description="useful for when you need to answer questions about math"
         )
     ]
 
     agent = initialize_agent(
         tools, 
-        ChatOpenAI(temperature=0, model='gpt-4'), 
+        ChatOpenAI(temperature=0, model='gpt-3.5-turbo'), 
         agent=AgentType.OPENAI_FUNCTIONS,
         memory=ConversationBufferMemory(memory_key="chat_history"),
         agent_kwargs={
-            'prefix': """Have a conversation with a human, answering the following questions as best you can. You should use Tools according to your interpretation of the question:""", 
+            'prefix': """Have a conversation with a human, answering the following questions as best you can. You have access to the following tools:""", 
             'suffix': """Begin!"
                 {chat_history}
                 Question: {input}
                 {agent_scratchpad}"""
         },
-        verbose=False
+        verbose=True
     )
-
-    print('Chat: Hello, what can I do for you?')
 
     while True:
         user_input = input(f'{user}: ')
