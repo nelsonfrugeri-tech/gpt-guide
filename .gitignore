@@ -157,7 +157,6 @@ package-lock.json
 dist
 
 # Chaves e arquivos de ambiente
-.env
 .env.local
 .env.*.local
 
