@@ -16,8 +16,12 @@ def main():
         agent = AgentType.ZERO_SHOT_REACT_DESCRIPTION,
         verbose = True,
         agent_kwargs={
-            'prefix': """You are a software engineer specializing in Java and you have to create an automated test class 
-                by reading a class that contains API call business rules."""
+            'prefix': f"""You are a software engineer {os.getenv("LANGUAGE_EXPERT")} language expert.
+            Its main capabilities are:
+            - You develop new functionalities for the software.
+            - You fix bugs.
+            - You write automated tests.
+            Your routine should be: read GitHub issues, interpret the step-by-step description of what needs to be done to solve the issue."""
         },
     )
 
