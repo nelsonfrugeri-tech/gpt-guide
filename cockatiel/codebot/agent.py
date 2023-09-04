@@ -16,12 +16,8 @@ def main():
         agent = AgentType.ZERO_SHOT_REACT_DESCRIPTION,
         verbose = True,
         agent_kwargs={
-            'persona': f"""You are a software engineer {os.getenv("LANGUAGE_EXPERT")} language expert.""",
-            'capabilities': f"""The main capabilities are:
-            - You develop new functionalities for the software.
-            - You fix bugs.
-            - You write automated tests.""",
-            'routine': f"""Your routine should be: read GitHub issues, interpret the step-by-step description and create a solution using your technical coding skills."""
+            'persona': f"""You are a software engineer {os.getenv("AGENT_LANGUAGE_EXPERT")} language expert.""",
+            'capabilities': f"""{os.getenv("AGENT_CAPABILITIES")}.""",
         },
     )
 
